@@ -1,32 +1,32 @@
 // Copy install command
 function copyInstallCommand() {
     const cmd = document.getElementById('install-cmd').textContent;
-    copyToClipboard(cmd);
-    showCopyFeedback(event.target);
+    copyToClipboard(cmd, event.target);
 }
 
 // Copy code from code blocks
 function copyCode(button) {
     const codeBlock = button.previousElementSibling;
     const code = codeBlock.textContent;
-    copyToClipboard(code);
-    showCopyFeedback(button);
+    copyToClipboard(code, button);
 }
 
 // Copy to clipboard utility
-function copyToClipboard(text) {
+function copyToClipboard(text, button) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).catch(err => {
-            console.error('Failed to copy:', err);
-            fallbackCopy(text);
-        });
+        navigator.clipboard.writeText(text)
+            .then(() => showCopyFeedback(button))
+            .catch(err => {
+                console.error('Failed to copy:', err);
+                fallbackCopy(text, button);
+            });
     } else {
-        fallbackCopy(text);
+        fallbackCopy(text, button);
     }
 }
 
 // Fallback copy method for older browsers
-function fallbackCopy(text) {
+function fallbackCopy(text, button) {
     const textarea = document.createElement('textarea');
     textarea.value = text;
     textarea.style.position = 'fixed';
@@ -35,6 +35,7 @@ function fallbackCopy(text) {
     textarea.select();
     try {
         document.execCommand('copy');
+        showCopyFeedback(button);
     } catch (err) {
         console.error('Fallback copy failed:', err);
     }
@@ -43,13 +44,17 @@ function fallbackCopy(text) {
 
 // Show copy feedback
 function showCopyFeedback(button) {
-    const originalText = button.textContent;
-    button.textContent = '✓ Copied!';
-    button.style.backgroundColor = '#10b981';
+    const originalHTML = button.innerHTML;
+    button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i><span>Copied!</span>';
+    lucide.createIcons();
+    button.classList.add('bg-green-500');
+    button.classList.remove('bg-orange-500', 'hover:bg-orange-600');
     
     setTimeout(() => {
-        button.textContent = originalText;
-        button.style.backgroundColor = '';
+        button.innerHTML = originalHTML;
+        lucide.createIcons();
+        button.classList.remove('bg-green-500');
+        button.classList.add('bg-orange-500', 'hover:bg-orange-600');
     }, 2000);
 }
 
@@ -67,31 +72,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 });
             }
         }
-    });
-});
-
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe feature cards and other elements
-document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.feature-card, .doc-card, .install-method');
-    elements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
     });
 });

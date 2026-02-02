@@ -15,80 +15,110 @@
     
     <title>TodoPro CLI - Professional Task Management from the Terminal</title>
     
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316',
+                        'primary-dark': '#ea580c',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="logo">📋 TodoPro CLI</span>
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#installation">Install</a>
-                <a href="#quickstart">Quick Start</a>
-                <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank" class="btn-primary">GitHub</a>
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="clipboard-list" class="w-6 h-6 text-orange-500"></i>
+                    <span class="text-xl font-bold">TodoPro CLI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-slate-400 hover:text-slate-100 transition-colors">Features</a>
+                    <a href="#installation" class="text-slate-400 hover:text-slate-100 transition-colors">Install</a>
+                    <a href="#quickstart" class="text-slate-400 hover:text-slate-100 transition-colors">Quick Start</a>
+                    <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors inline-flex items-center space-x-2">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Professional Task Management<br>from the Terminal</h1>
-                <p class="hero-subtitle">A kubectl-inspired CLI for TodoPro. Context-aware, multi-environment, with natural language input.</p>
-                
-                <div class="badges">
-                    <img src="https://img.shields.io/badge/python-3.12+-blue.svg" alt="Python 3.12+">
-                    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
-                    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv">
-                </div>
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+                Professional Task Management<br>from the Terminal
+            </h1>
+            <p class="text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
+                A kubectl-inspired CLI for TodoPro. Context-aware, multi-environment, with natural language input.
+            </p>
+            
+            <div class="flex justify-center items-center gap-3 mb-8 flex-wrap">
+                <img src="https://img.shields.io/badge/python-3.12+-orange.svg" alt="Python 3.12+">
+                <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
+                <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv">
+            </div>
 
-                <div class="install-command">
-                    <code id="install-cmd">curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
-                    <button class="copy-btn" onclick="copyInstallCommand()">📋 Copy</button>
-                </div>
+            <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-4xl mx-auto mb-12 flex items-center gap-4">
+                <code class="flex-1 text-left text-emerald-400 text-sm font-mono overflow-x-auto" id="install-cmd">curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
+                <button onclick="copyInstallCommand()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors whitespace-nowrap inline-flex items-center space-x-2">
+                    <i data-lucide="clipboard" class="w-4 h-4"></i>
+                    <span>Copy</span>
+                </button>
+            </div>
 
-                <div class="terminal-demo">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">todopro</span>
+            <div class="max-w-4xl mx-auto bg-slate-800 rounded-lg overflow-hidden shadow-2xl">
+                <div class="bg-slate-900 px-4 py-3 flex items-center gap-2 border-b border-slate-700">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
-                    <div class="terminal-body">
-                        <div class="terminal-line">
-                            <span class="prompt">$</span> 
-                            <span class="command">todopro login</span>
-                        </div>
-                        <div class="terminal-line output">✓ Logged in successfully</div>
-                        <div class="terminal-line">
-                            <span class="prompt">$</span> 
-                            <span class="command">todopro add "Review PR tomorrow at 2pm #work @office p1"</span>
-                        </div>
-                        <div class="terminal-line output">✓ Task created: Review PR</div>
-                        <div class="terminal-line output">  Due: 2026-02-03 14:00</div>
-                        <div class="terminal-line output">  Labels: work</div>
-                        <div class="terminal-line output">  Context: office</div>
-                        <div class="terminal-line output">  Priority: P1 (Urgent)</div>
-                        <div class="terminal-line">
-                            <span class="prompt">$</span> 
-                            <span class="command">todopro today</span>
-                        </div>
-                        <div class="terminal-line output">┌─────────────────────────────────────────┐</div>
-                        <div class="terminal-line output">│ Today's Tasks (3)                       │</div>
-                        <div class="terminal-line output">├─────────────────────────────────────────┤</div>
-                        <div class="terminal-line output">│ [P1] Review PR           @office #work  │</div>
-                        <div class="terminal-line output">│ [P2] Team meeting        @office        │</div>
-                        <div class="terminal-line output">│ [P3] Buy groceries       @home          │</div>
-                        <div class="terminal-line output">└─────────────────────────────────────────┘</div>
-                        <div class="terminal-line">
-                            <span class="prompt">$</span> 
-                            <span class="cursor">_</span>
-                        </div>
+                    <span class="ml-auto text-sm text-slate-400">todopro</span>
+                </div>
+                <div class="p-6 font-mono text-sm space-y-1">
+                    <div class="flex gap-2">
+                        <span class="text-emerald-400">$</span>
+                        <span class="text-sky-400">todopro login</span>
+                    </div>
+                    <div class="text-slate-400 pl-6">✓ Logged in successfully</div>
+                    <div class="flex gap-2">
+                        <span class="text-emerald-400">$</span>
+                        <span class="text-sky-400">todopro add "Review PR tomorrow at 2pm #work @office p1"</span>
+                    </div>
+                    <div class="text-slate-400 pl-6">✓ Task created: Review PR</div>
+                    <div class="text-slate-400 pl-6">  Due: 2026-02-03 14:00</div>
+                    <div class="text-slate-400 pl-6">  Labels: work</div>
+                    <div class="text-slate-400 pl-6">  Context: office</div>
+                    <div class="text-slate-400 pl-6">  Priority: P1 (Urgent)</div>
+                    <div class="flex gap-2">
+                        <span class="text-emerald-400">$</span>
+                        <span class="text-sky-400">todopro today</span>
+                    </div>
+                    <div class="text-slate-400 pl-6">┌─────────────────────────────────────────┐</div>
+                    <div class="text-slate-400 pl-6">│ Today's Tasks (3)                       │</div>
+                    <div class="text-slate-400 pl-6">├─────────────────────────────────────────┤</div>
+                    <div class="text-slate-400 pl-6">│ [P1] Review PR           @office #work  │</div>
+                    <div class="text-slate-400 pl-6">│ [P2] Team meeting        @office        │</div>
+                    <div class="text-slate-400 pl-6">│ [P3] Buy groceries       @home          │</div>
+                    <div class="text-slate-400 pl-6">└─────────────────────────────────────────┘</div>
+                    <div class="flex gap-2">
+                        <span class="text-emerald-400">$</span>
+                        <span class="animate-pulse">_</span>
                     </div>
                 </div>
             </div>
@@ -96,83 +126,101 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Kubectl-Inspired</h3>
-                    <p>Resource-oriented commands with consistent patterns. If you know kubectl, you'll feel right at home.</p>
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                    <i data-lucide="zap" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Kubectl-Inspired</h3>
+                    <p class="text-slate-400">Resource-oriented commands with consistent patterns. If you know kubectl, you'll feel right at home.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Multi-Environment</h3>
-                    <p>Switch seamlessly between dev, staging, and prod contexts with separate credentials.</p>
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                    <i data-lucide="globe" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Multi-Environment</h3>
+                    <p class="text-slate-400">Switch seamlessly between dev, staging, and prod contexts with separate credentials.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Natural Language</h3>
-                    <p>Create tasks with plain English like "Review PR tomorrow at 2pm #work @office p1"</p>
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                    <i data-lucide="message-square" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Natural Language</h3>
+                    <p class="text-slate-400">Create tasks with plain English like "Review PR tomorrow at 2pm #work @office p1"</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Output Flexibility</h3>
-                    <p>Choose your format: JSON, YAML, table, or custom. Perfect for automation and scripting.</p>
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                    <i data-lucide="layout-grid" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Output Flexibility</h3>
+                    <p class="text-slate-400">Choose your format: JSON, YAML, table, or custom. Perfect for automation and scripting.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Professional UX</h3>
-                    <p>Rich terminal UI with colors, progress indicators, and helpful messages.</p>
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                    <i data-lucide="palette" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Professional UX</h3>
+                    <p class="text-slate-400">Rich terminal UI with colors, progress indicators, and helpful messages.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Context-Aware</h3>
-                    <p>Maintains authentication state and user preferences. Never lose your session.</p>
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                    <i data-lucide="refresh-cw" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Context-Aware</h3>
+                    <p class="text-slate-400">Maintains authentication state and user preferences. Never lose your session.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Installation Section -->
-    <section id="installation" class="installation">
-        <div class="container">
-            <h2>Installation</h2>
+    <section id="installation" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Installation</h2>
             
-            <div class="install-methods">
-                <div class="install-method recommended">
-                    <div class="method-badge">Recommended</div>
-                    <h3>One-Liner Install</h3>
-                    <p>Installs uv and todopro-cli in one command:</p>
-                    <div class="code-block">
-                        <code>curl -LsSf https://astral.sh/uv/install.sh | sh && \
+            <div class="space-y-6">
+                <div class="bg-slate-800 border-2 border-orange-500 rounded-lg p-6 relative">
+                    <div class="absolute -top-3 right-6 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">Recommended</div>
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                        <i data-lucide="download" class="w-5 h-5 text-orange-500"></i>
+                        One-Liner Install
+                    </h3>
+                    <p class="text-slate-400 mb-4">Installs uv and todopro-cli in one command:</p>
+                    <div class="bg-slate-900 border border-slate-700 rounded-lg p-4 relative">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto">curl -LsSf https://astral.sh/uv/install.sh | sh && \
 uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
-                        <button class="copy-btn-small" onclick="copyCode(this)">Copy</button>
+                        <button onclick="copyCode(this)" class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
+                            <i data-lucide="clipboard" class="w-3 h-3"></i>
+                            <span>Copy</span>
+                        </button>
                     </div>
                 </div>
                 
-                <div class="install-method">
-                    <h3>From Source</h3>
-                    <p>Clone and install locally:</p>
-                    <div class="code-block">
-                        <code>git clone https://github.com/minhdqdev-org/todopro-cli.git
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                        <i data-lucide="folder-git" class="w-5 h-5 text-orange-500"></i>
+                        From Source
+                    </h3>
+                    <p class="text-slate-400 mb-4">Clone and install locally:</p>
+                    <div class="bg-slate-900 border border-slate-700 rounded-lg p-4 relative">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto">git clone https://github.com/minhdqdev-org/todopro-cli.git
 cd todopro-cli
 uv tool install --from . todopro-cli</code>
-                        <button class="copy-btn-small" onclick="copyCode(this)">Copy</button>
+                        <button onclick="copyCode(this)" class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
+                            <i data-lucide="clipboard" class="w-3 h-3"></i>
+                            <span>Copy</span>
+                        </button>
                     </div>
                 </div>
                 
-                <div class="install-method">
-                    <h3>Update</h3>
-                    <p>Keep your installation up to date:</p>
-                    <div class="code-block">
-                        <code>uv tool upgrade todopro-cli</code>
-                        <button class="copy-btn-small" onclick="copyCode(this)">Copy</button>
+                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                        <i data-lucide="arrow-up-circle" class="w-5 h-5 text-orange-500"></i>
+                        Update
+                    </h3>
+                    <p class="text-slate-400 mb-4">Keep your installation up to date:</p>
+                    <div class="bg-slate-900 border border-slate-700 rounded-lg p-4 relative">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto">uv tool upgrade todopro-cli</code>
+                        <button onclick="copyCode(this)" class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
+                            <i data-lucide="clipboard" class="w-3 h-3"></i>
+                            <span>Copy</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -180,14 +228,17 @@ uv tool install --from . todopro-cli</code>
     </section>
 
     <!-- Quick Start Section -->
-    <section id="quickstart" class="quickstart">
-        <div class="container">
-            <h2>Quick Start</h2>
-            <div class="quickstart-grid">
-                <div class="quickstart-section">
-                    <h3>Basic Usage</h3>
-                    <div class="code-block">
-                        <code># Login to TodoPro
+    <section id="quickstart" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Quick Start</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="play-circle" class="w-5 h-5 text-orange-500"></i>
+                        Basic Usage
+                    </h3>
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Login to TodoPro
 todopro login
 
 # Quick add a task
@@ -207,10 +258,13 @@ todopro complete &lt;task_id&gt;</code>
                     </div>
                 </div>
                 
-                <div class="quickstart-section">
-                    <h3>Context Management</h3>
-                    <div class="code-block">
-                        <code># Switch environments
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="settings" class="w-5 h-5 text-orange-500"></i>
+                        Context Management
+                    </h3>
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Switch environments
 todopro config use-context prod
 
 # List available contexts
@@ -224,10 +278,13 @@ todopro contexts check</code>
                     </div>
                 </div>
                 
-                <div class="quickstart-section">
-                    <h3>Task ID Shortcuts</h3>
-                    <div class="code-block">
-                        <code># Use suffixes instead of full IDs
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="hash" class="w-5 h-5 text-orange-500"></i>
+                        Task ID Shortcuts
+                    </h3>
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Use suffixes instead of full IDs
 todopro complete abc123def    # Full suffix
 todopro complete 123def       # Short suffix
 todopro reschedule e562bb     # Reschedule to today
@@ -236,10 +293,13 @@ todopro update 123def --content "Updated task"</code>
                     </div>
                 </div>
                 
-                <div class="quickstart-section">
-                    <h3>Advanced Features</h3>
-                    <div class="code-block">
-                        <code># Reschedule overdue tasks
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-orange-500"></i>
+                        Advanced Features
+                    </h3>
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Reschedule overdue tasks
 todopro tasks reschedule overdue --yes
 
 # Set timezone
@@ -257,60 +317,74 @@ todopro --help</code>
     </section>
 
     <!-- Documentation Section -->
-    <section class="documentation">
-        <div class="container">
-            <h2>Documentation</h2>
-            <div class="doc-links">
-                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/README.md" class="doc-card" target="_blank">
-                    <div class="doc-icon">📖</div>
-                    <h3>Full Documentation</h3>
-                    <p>Complete guide and API reference</p>
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Documentation</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/README.md" target="_blank" class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
+                    <i data-lucide="book-open" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Full Documentation</h3>
+                    <p class="text-slate-400">Complete guide and API reference</p>
                 </a>
-                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/INSTALLATION.md" class="doc-card" target="_blank">
-                    <div class="doc-icon">📦</div>
-                    <h3>Installation Guide</h3>
-                    <p>Detailed installation and troubleshooting</p>
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/INSTALLATION.md" target="_blank" class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
+                    <i data-lucide="package" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Installation Guide</h3>
+                    <p class="text-slate-400">Detailed installation and troubleshooting</p>
                 </a>
-                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/RELEASE.md" class="doc-card" target="_blank">
-                    <div class="doc-icon">🚀</div>
-                    <h3>Release Process</h3>
-                    <p>How to create and publish releases</p>
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/RELEASE.md" target="_blank" class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
+                    <i data-lucide="rocket" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Release Process</h3>
+                    <p class="text-slate-400">How to create and publish releases</p>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>TodoPro CLI</h4>
-                    <p>A professional command-line interface for TodoPro task management system.</p>
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="clipboard-list" class="w-6 h-6 text-orange-500"></i>
+                        <h4 class="text-xl font-bold">TodoPro CLI</h4>
+                    </div>
+                    <p class="text-slate-400">A professional command-line interface for TodoPro task management system.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Links</h4>
-                    <ul>
-                        <li><a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank">GitHub Repository</a></li>
-                        <li><a href="https://github.com/minhdqdev-org/todopro-cli/issues" target="_blank">Report Issues</a></li>
-                        <li><a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/LICENSE" target="_blank">MIT License</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>TodoPro Ecosystem</h4>
-                    <ul>
-                        <li><a href="https://github.com/minhdqdev-org/todopro-core-svc" target="_blank">Backend API</a></li>
-                        <li><a href="https://github.com/minhdqdev-org/todopro-web" target="_blank">Web Application</a></li>
-                        <li><a href="https://github.com/minhdqdev-org/todopro-qa" target="_blank">QA Testing</a></li>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
+                                <i data-lucide="github" class="w-4 h-4"></i>
+                                GitHub Repository
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/minhdqdev-org/todopro-cli/issues" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
+                                <i data-lucide="bug" class="w-4 h-4"></i>
+                                Report Issues
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/LICENSE" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
+                                <i data-lucide="scale" class="w-4 h-4"></i>
+                                MIT License
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 minhdqdev. Licensed under MIT License.</p>
+            <div class="border-t border-slate-800 pt-8 text-center">
+                <p class="text-slate-400 text-sm">&copy; 2026 minhdqdev. Licensed under MIT License.</p>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
