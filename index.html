@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TodoPro CLI - A professional command-line interface for task management, inspired by kubectl">
+    <meta name="keywords" content="todo, cli, task management, productivity, command line, kubectl">
+    <meta name="author" content="minhdqdev">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TodoPro CLI - Professional Task Management from the Terminal">
+    <meta property="og:description" content="A kubectl-inspired CLI for TodoPro. Context-aware, multi-environment, with natural language input.">
+    <meta property="og:url" content="https://minhdqdev-org.github.io/todopro-cli-web/">
+    
+    <title>TodoPro CLI - Professional Task Management from the Terminal</title>
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">📋 TodoPro CLI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#installation">Install</a>
+                <a href="#quickstart">Quick Start</a>
+                <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank" class="btn-primary">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Task Management<br>from the Terminal</h1>
+                <p class="hero-subtitle">A kubectl-inspired CLI for TodoPro. Context-aware, multi-environment, with natural language input.</p>
+                
+                <div class="badges">
+                    <img src="https://img.shields.io/badge/python-3.12+-blue.svg" alt="Python 3.12+">
+                    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
+                    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv">
+                </div>
+
+                <div class="install-command">
+                    <code id="install-cmd">curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
+                    <button class="copy-btn" onclick="copyInstallCommand()">📋 Copy</button>
+                </div>
+
+                <div class="terminal-demo">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">todopro</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> 
+                            <span class="command">todopro login</span>
+                        </div>
+                        <div class="terminal-line output">✓ Logged in successfully</div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> 
+                            <span class="command">todopro add "Review PR tomorrow at 2pm #work @office p1"</span>
+                        </div>
+                        <div class="terminal-line output">✓ Task created: Review PR</div>
+                        <div class="terminal-line output">  Due: 2026-02-03 14:00</div>
+                        <div class="terminal-line output">  Labels: work</div>
+                        <div class="terminal-line output">  Context: office</div>
+                        <div class="terminal-line output">  Priority: P1 (Urgent)</div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> 
+                            <span class="command">todopro today</span>
+                        </div>
+                        <div class="terminal-line output">┌─────────────────────────────────────────┐</div>
+                        <div class="terminal-line output">│ Today's Tasks (3)                       │</div>
+                        <div class="terminal-line output">├─────────────────────────────────────────┤</div>
+                        <div class="terminal-line output">│ [P1] Review PR           @office #work  │</div>
+                        <div class="terminal-line output">│ [P2] Team meeting        @office        │</div>
+                        <div class="terminal-line output">│ [P3] Buy groceries       @home          │</div>
+                        <div class="terminal-line output">└─────────────────────────────────────────┘</div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> 
+                            <span class="cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Kubectl-Inspired</h3>
+                    <p>Resource-oriented commands with consistent patterns. If you know kubectl, you'll feel right at home.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Multi-Environment</h3>
+                    <p>Switch seamlessly between dev, staging, and prod contexts with separate credentials.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Natural Language</h3>
+                    <p>Create tasks with plain English like "Review PR tomorrow at 2pm #work @office p1"</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Output Flexibility</h3>
+                    <p>Choose your format: JSON, YAML, table, or custom. Perfect for automation and scripting.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Professional UX</h3>
+                    <p>Rich terminal UI with colors, progress indicators, and helpful messages.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Context-Aware</h3>
+                    <p>Maintains authentication state and user preferences. Never lose your session.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
+            <h2>Installation</h2>
+            
+            <div class="install-methods">
+                <div class="install-method recommended">
+                    <div class="method-badge">Recommended</div>
+                    <h3>One-Liner Install</h3>
+                    <p>Installs uv and todopro-cli in one command:</p>
+                    <div class="code-block">
+                        <code>curl -LsSf https://astral.sh/uv/install.sh | sh && \
+uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
+                        <button class="copy-btn-small" onclick="copyCode(this)">Copy</button>
+                    </div>
+                </div>
+                
+                <div class="install-method">
+                    <h3>From Source</h3>
+                    <p>Clone and install locally:</p>
+                    <div class="code-block">
+                        <code>git clone https://github.com/minhdqdev-org/todopro-cli.git
+cd todopro-cli
+uv tool install --from . todopro-cli</code>
+                        <button class="copy-btn-small" onclick="copyCode(this)">Copy</button>
+                    </div>
+                </div>
+                
+                <div class="install-method">
+                    <h3>Update</h3>
+                    <p>Keep your installation up to date:</p>
+                    <div class="code-block">
+                        <code>uv tool upgrade todopro-cli</code>
+                        <button class="copy-btn-small" onclick="copyCode(this)">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quickstart" class="quickstart">
+        <div class="container">
+            <h2>Quick Start</h2>
+            <div class="quickstart-grid">
+                <div class="quickstart-section">
+                    <h3>Basic Usage</h3>
+                    <div class="code-block">
+                        <code># Login to TodoPro
+todopro login
+
+# Quick add a task
+todopro add "Buy milk tomorrow at 2pm #groceries"
+
+# List tasks
+todopro tasks list
+
+# See what's due today
+todopro today
+
+# Get the next task to work on
+todopro next
+
+# Complete a task
+todopro complete &lt;task_id&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="quickstart-section">
+                    <h3>Context Management</h3>
+                    <div class="code-block">
+                        <code># Switch environments
+todopro config use-context prod
+
+# List available contexts
+todopro config get-contexts
+
+# Create a location context
+todopro contexts create home --icon "🏠" --geo
+
+# Check context availability
+todopro contexts check</code>
+                    </div>
+                </div>
+                
+                <div class="quickstart-section">
+                    <h3>Task ID Shortcuts</h3>
+                    <div class="code-block">
+                        <code># Use suffixes instead of full IDs
+todopro complete abc123def    # Full suffix
+todopro complete 123def       # Short suffix
+todopro reschedule e562bb     # Reschedule to today
+todopro get e562bb            # Get task details
+todopro update 123def --content "Updated task"</code>
+                    </div>
+                </div>
+                
+                <div class="quickstart-section">
+                    <h3>Advanced Features</h3>
+                    <div class="code-block">
+                        <code># Reschedule overdue tasks
+todopro tasks reschedule overdue --yes
+
+# Set timezone
+todopro auth timezone Asia/Ho_Chi_Minh
+
+# Output as JSON
+todopro tasks list -o json
+
+# Get help
+todopro --help</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="documentation">
+        <div class="container">
+            <h2>Documentation</h2>
+            <div class="doc-links">
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/README.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">📖</div>
+                    <h3>Full Documentation</h3>
+                    <p>Complete guide and API reference</p>
+                </a>
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/INSTALLATION.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">📦</div>
+                    <h3>Installation Guide</h3>
+                    <p>Detailed installation and troubleshooting</p>
+                </a>
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/RELEASE.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🚀</div>
+                    <h3>Release Process</h3>
+                    <p>How to create and publish releases</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TodoPro CLI</h4>
+                    <p>A professional command-line interface for TodoPro task management system.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://github.com/minhdqdev-org/todopro-cli/issues" target="_blank">Report Issues</a></li>
+                        <li><a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/LICENSE" target="_blank">MIT License</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>TodoPro Ecosystem</h4>
+                    <ul>
+                        <li><a href="https://github.com/minhdqdev-org/todopro-core-svc" target="_blank">Backend API</a></li>
+                        <li><a href="https://github.com/minhdqdev-org/todopro-web" target="_blank">Web Application</a></li>
+                        <li><a href="https://github.com/minhdqdev-org/todopro-qa" target="_blank">QA Testing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 minhdqdev. Licensed under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
