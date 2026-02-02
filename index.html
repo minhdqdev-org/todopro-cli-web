@@ -250,13 +250,13 @@ uv tool install --from . todopro-cli</code>
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16">Quick Start</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div>
+                <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="play-circle" class="w-5 h-5 text-orange-500"></i>
                         Basic Usage
                     </h3>
-                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Login to TodoPro
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Login to TodoPro
 todopro login
 
 # Quick add a task
@@ -276,13 +276,13 @@ todopro complete &lt;task_id&gt;</code>
                     </div>
                 </div>
                 
-                <div>
+                <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="settings" class="w-5 h-5 text-orange-500"></i>
                         Context Management
                     </h3>
-                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Switch environments
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Switch environments
 todopro config use-context prod
 
 # List available contexts
@@ -296,13 +296,13 @@ todopro contexts check</code>
                     </div>
                 </div>
                 
-                <div>
+                <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="hash" class="w-5 h-5 text-orange-500"></i>
                         Task ID Shortcuts
                     </h3>
-                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Use suffixes instead of full IDs
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Use suffixes instead of full IDs
 todopro complete abc123def    # Full suffix
 todopro complete 123def       # Short suffix
 todopro reschedule e562bb     # Reschedule to today
@@ -311,13 +311,13 @@ todopro update 123def --content "Updated task"</code>
                     </div>
                 </div>
                 
-                <div>
+                <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="sparkles" class="w-5 h-5 text-orange-500"></i>
                         Advanced Features
                     </h3>
-                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto whitespace-pre"># Reschedule overdue tasks
+                    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Reschedule overdue tasks
 todopro tasks reschedule overdue --yes
 
 # Set timezone
