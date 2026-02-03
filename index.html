@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TodoPro CLI - A professional command-line interface for task management with CLI-first design">
+    <meta name="description"
+        content="TodoPro CLI - A professional command-line interface for task management with CLI-first design">
     <meta name="keywords" content="todo, cli, task management, productivity, command line, ai-agent, automation">
     <meta name="author" content="minhdqdev">
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="TodoPro CLI - Professional Task Management from the Terminal">
-    <meta property="og:description" content="A CLI-first task manager. Natural language input, multi-environment support, and built for automation & AI agents.">
+    <meta property="og:description"
+        content="A CLI-first task manager. Natural language input, multi-environment support, and built for automation & AI agents.">
     <meta property="og:url" content="https://minhdqdev-org.github.io/todopro-cli-web/">
-    
+
     <title>TodoPro CLI - Professional Task Management from the Terminal</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -29,12 +32,13 @@
             }
         }
     </script>
-    
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
+
 <body class="bg-slate-950 text-slate-100">
     <!-- Navigation -->
     <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
@@ -48,7 +52,8 @@
                     <a href="#features" class="text-slate-400 hover:text-slate-100 transition-colors">Features</a>
                     <a href="#installation" class="text-slate-400 hover:text-slate-100 transition-colors">Install</a>
                     <a href="#quickstart" class="text-slate-400 hover:text-slate-100 transition-colors">Quick Start</a>
-                    <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors inline-flex items-center space-x-2">
+                    <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank"
+                        class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors inline-flex items-center space-x-2">
                         <i data-lucide="github" class="w-4 h-4"></i>
                         <span>GitHub</span>
                     </a>
@@ -60,24 +65,30 @@
     <!-- Hero Section -->
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
         <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+            <h1
+                class="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
                 Professional Task Management<br>from the Terminal
             </h1>
             <p class="text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
-                A CLI-first task manager designed for developers. Natural language input, multi-environment support, and built for automation & AI agents.
+                A CLI-first task manager designed for developers. Natural language input, multi-environment support, and
+                built for automation & AI agents.
             </p>
-            
+
             <div class="flex justify-center items-center gap-3 mb-8 flex-wrap">
                 <img src="https://img.shields.io/badge/python-3.12+-orange.svg" alt="Python 3.12+">
                 <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
-                <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv">
+                <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json"
+                    alt="uv">
             </div>
 
-            <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-4xl mx-auto mb-12 flex items-center gap-4">
-                <code class="flex-1 text-left text-emerald-400 text-sm font-mono overflow-x-auto" id="install-cmd">curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
-                <button onclick="copyInstallCommand()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors whitespace-nowrap inline-flex items-center space-x-2">
+            <div
+                class="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-4xl mx-auto mb-12 flex items-center gap-4">
+                <code class="flex-1 text-left text-emerald-400 text-sm font-mono overflow-x-auto"
+                    id="install-cmd">curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
+                <button onclick="copyInstallCommand()"
+                    class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors whitespace-nowrap inline-flex items-center space-x-2">
                     <i data-lucide="clipboard" class="w-4 h-4"></i>
-                    <span>Copy</span>
+                    <!-- <span>Copy</span> -->
                 </button>
             </div>
 
@@ -101,10 +112,10 @@
                         <span class="text-sky-400">todopro add "Review PR tomorrow at 2pm #work @office p1"</span>
                     </div>
                     <div class="text-slate-400 pl-6">✓ Task created: Review PR</div>
-                    <div class="text-slate-400 pl-6">  Due: 2026-02-03 14:00</div>
-                    <div class="text-slate-400 pl-6">  Labels: work</div>
-                    <div class="text-slate-400 pl-6">  Context: office</div>
-                    <div class="text-slate-400 pl-6">  Priority: P1 (Urgent)</div>
+                    <div class="text-slate-400 pl-6"> Due: 2026-02-03 14:00</div>
+                    <div class="text-slate-400 pl-6"> Labels: work</div>
+                    <div class="text-slate-400 pl-6"> Context: office</div>
+                    <div class="text-slate-400 pl-6"> Priority: P1 (Urgent)</div>
                     <div class="flex gap-2">
                         <span class="text-emerald-400">$</span>
                         <span class="text-sky-400">todopro data export --output backup.json</span>
@@ -130,58 +141,76 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16">Features</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="zap" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">CLI-First Design</h3>
-                    <p class="text-slate-400">Built for the command line from the ground up. Intuitive for humans, perfect for automation and AI agents.</p>
+                    <p class="text-slate-400">Built for the command line from the ground up. Intuitive for humans,
+                        perfect for automation and AI agents.</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="globe" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">Multi-Environment</h3>
-                    <p class="text-slate-400">Switch seamlessly between dev, staging, and prod contexts with separate credentials.</p>
+                    <p class="text-slate-400">Switch seamlessly between dev, staging, and prod contexts with separate
+                        credentials.</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="message-square" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">Natural Language</h3>
-                    <p class="text-slate-400">Create tasks with plain English like "Review PR tomorrow at 2pm #work @office p1"</p>
+                    <p class="text-slate-400">Create tasks with plain English like "Review PR tomorrow at 2pm #work
+                        @office p1"</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="layout-grid" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">Output Flexibility</h3>
-                    <p class="text-slate-400">Choose your format: JSON, YAML, table, or custom. Perfect for automation and scripting.</p>
+                    <p class="text-slate-400">Choose your format: JSON, YAML, table, or custom. Perfect for automation
+                        and scripting.</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="palette" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">Professional UX</h3>
-                    <p class="text-slate-400">Rich terminal UI with colors, progress indicators, and helpful messages.</p>
+                    <p class="text-slate-400">Rich terminal UI with colors, progress indicators, and helpful messages.
+                    </p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="refresh-cw" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">Context-Aware</h3>
-                    <p class="text-slate-400">Maintains authentication state and user preferences. Never lose your session.</p>
+                    <p class="text-slate-400">Maintains authentication state and user preferences. Never lose your
+                        session.</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="lock" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">End-to-End Encryption</h3>
-                    <p class="text-slate-400">Client-side encryption with AES-256-GCM. Your data is encrypted before it reaches the server. Zero-knowledge architecture.</p>
+                    <p class="text-slate-400">Client-side encryption with AES-256-GCM. Your data is encrypted before it
+                        reaches the server. Zero-knowledge architecture.</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="bot" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">AI-Agent Friendly</h3>
-                    <p class="text-slate-400">JSON output, semantic exit codes, and idempotent operations. Perfect for automation and AI workflows.</p>
+                    <p class="text-slate-400">JSON output, semantic exit codes, and idempotent operations. Perfect for
+                        automation and AI workflows.</p>
                 </div>
-                
-                <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
+
+                <div
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
                     <i data-lucide="database" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">Import/Export</h3>
-                    <p class="text-slate-400">Easily backup and restore all your data. Export to JSON for portability and integration.</p>
+                    <p class="text-slate-400">Easily backup and restore all your data. Export to JSON for portability
+                        and integration.</p>
                 </div>
             </div>
         </div>
@@ -191,10 +220,12 @@
     <section id="installation" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16">Installation</h2>
-            
+
             <div class="space-y-6">
                 <div class="bg-slate-800 border-2 border-orange-500 rounded-lg p-6 relative">
-                    <div class="absolute -top-3 right-6 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">Recommended</div>
+                    <div
+                        class="absolute -top-3 right-6 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        Recommended</div>
                     <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
                         <i data-lucide="download" class="w-5 h-5 text-orange-500"></i>
                         One-Liner Install
@@ -203,13 +234,14 @@
                     <div class="bg-slate-900 border border-slate-700 rounded-lg p-4 relative">
                         <code class="text-emerald-400 text-sm font-mono block overflow-x-auto">curl -LsSf https://astral.sh/uv/install.sh | sh && \
 uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
-                        <button onclick="copyCode(this)" class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
+                        <button onclick="copyCode(this)"
+                            class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
                             <i data-lucide="clipboard" class="w-3 h-3"></i>
-                            <span>Copy</span>
+                            <!-- <span>Copy</span> -->
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bg-slate-800 border border-slate-700 rounded-lg p-6">
                     <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
                         <i data-lucide="folder-git" class="w-5 h-5 text-orange-500"></i>
@@ -220,13 +252,14 @@ uv tool install git+https://github.com/minhdqdev-org/todopro-cli.git</code>
                         <code class="text-emerald-400 text-sm font-mono block overflow-x-auto">git clone https://github.com/minhdqdev-org/todopro-cli.git
 cd todopro-cli
 uv tool install --from . todopro-cli</code>
-                        <button onclick="copyCode(this)" class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
+                        <button onclick="copyCode(this)"
+                            class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
                             <i data-lucide="clipboard" class="w-3 h-3"></i>
-                            <span>Copy</span>
+                            <!-- <span>Copy</span> -->
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bg-slate-800 border border-slate-700 rounded-lg p-6">
                     <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
                         <i data-lucide="arrow-up-circle" class="w-5 h-5 text-orange-500"></i>
@@ -234,10 +267,12 @@ uv tool install --from . todopro-cli</code>
                     </h3>
                     <p class="text-slate-400 mb-4">Keep your installation up to date:</p>
                     <div class="bg-slate-900 border border-slate-700 rounded-lg p-4 relative">
-                        <code class="text-emerald-400 text-sm font-mono block overflow-x-auto">uv tool upgrade todopro-cli</code>
-                        <button onclick="copyCode(this)" class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
+                        <code
+                            class="text-emerald-400 text-sm font-mono block overflow-x-auto">uv tool upgrade todopro-cli</code>
+                        <button onclick="copyCode(this)"
+                            class="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors inline-flex items-center gap-1">
                             <i data-lucide="clipboard" class="w-3 h-3"></i>
-                            <span>Copy</span>
+                            <!-- <span>Copy</span> -->
                         </button>
                     </div>
                 </div>
@@ -275,7 +310,7 @@ todopro next
 todopro complete &lt;task_id&gt;</code>
                     </div>
                 </div>
-                
+
                 <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="settings" class="w-5 h-5 text-orange-500"></i>
@@ -295,7 +330,7 @@ todopro contexts create home --icon "🏠" --geo
 todopro contexts check</code>
                     </div>
                 </div>
-                
+
                 <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="hash" class="w-5 h-5 text-orange-500"></i>
@@ -310,7 +345,7 @@ todopro get e562bb            # Get task details
 todopro update 123def --content "Updated task"</code>
                     </div>
                 </div>
-                
+
                 <div class="min-w-0">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="sparkles" class="w-5 h-5 text-orange-500"></i>
@@ -339,17 +374,20 @@ todopro --help</code>
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16">Documentation</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/README.md" target="_blank" class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/README.md" target="_blank"
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
                     <i data-lucide="book-open" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">Full Documentation</h3>
                     <p class="text-slate-400">Complete guide and API reference</p>
                 </a>
-                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/INSTALLATION.md" target="_blank" class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/INSTALLATION.md" target="_blank"
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
                     <i data-lucide="package" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">Installation Guide</h3>
                     <p class="text-slate-400">Detailed installation and troubleshooting</p>
                 </a>
-                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/RELEASE.md" target="_blank" class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
+                <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/docs/RELEASE.md" target="_blank"
+                    class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1 block">
                     <i data-lucide="rocket" class="w-12 h-12 text-orange-500 mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">Release Process</h3>
                     <p class="text-slate-400">How to create and publish releases</p>
@@ -367,25 +405,29 @@ todopro --help</code>
                         <i data-lucide="clipboard-list" class="w-6 h-6 text-orange-500"></i>
                         <h4 class="text-xl font-bold">TodoPro CLI</h4>
                     </div>
-                    <p class="text-slate-400">A professional command-line interface for TodoPro task management system.</p>
+                    <p class="text-slate-400">A professional command-line interface for TodoPro task management system.
+                    </p>
                 </div>
                 <div>
                     <h4 class="text-xl font-bold mb-4">Links</h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
+                            <a href="https://github.com/minhdqdev-org/todopro-cli" target="_blank"
+                                class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
                                 <i data-lucide="github" class="w-4 h-4"></i>
                                 GitHub Repository
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/minhdqdev-org/todopro-cli/issues" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
+                            <a href="https://github.com/minhdqdev-org/todopro-cli/issues" target="_blank"
+                                class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
                                 <i data-lucide="bug" class="w-4 h-4"></i>
                                 Report Issues
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/LICENSE" target="_blank" class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
+                            <a href="https://github.com/minhdqdev-org/todopro-cli/blob/main/LICENSE" target="_blank"
+                                class="text-slate-400 hover:text-orange-500 transition-colors inline-flex items-center gap-2">
                                 <i data-lucide="scale" class="w-4 h-4"></i>
                                 MIT License
                             </a>
@@ -405,4 +447,5 @@ todopro --help</code>
         lucide.createIcons();
     </script>
 </body>
+
 </html>
