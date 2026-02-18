@@ -104,29 +104,29 @@
                 <div class="p-6 font-mono text-sm space-y-1">
                     <div class="flex gap-2">
                         <span class="text-emerald-400">$</span>
-                        <span class="text-sky-400">todopro login</span>
+                        <span class="text-sky-400">tp add "Review PR tomorrow at 2pm #work p1" --project Work</span>
                     </div>
-                    <div class="text-slate-400 pl-6">✓ Logged in successfully</div>
+                    <div class="text-slate-400 pl-6">✓ Task created: Review PR  [<span class="text-orange-400">3f</span>]</div>
+                    <div class="text-slate-400 pl-6">  Due: tomorrow 14:00  Priority: P1  Project: Work</div>
                     <div class="flex gap-2">
                         <span class="text-emerald-400">$</span>
-                        <span class="text-sky-400">todopro add "Review PR tomorrow at 2pm #work @office p1"</span>
+                        <span class="text-sky-400">tp today</span>
                     </div>
-                    <div class="text-slate-400 pl-6">✓ Task created: Review PR</div>
-                    <div class="text-slate-400 pl-6"> Due: 2026-02-03 14:00</div>
-                    <div class="text-slate-400 pl-6"> Labels: work</div>
-                    <div class="text-slate-400 pl-6"> Context: office</div>
-                    <div class="text-slate-400 pl-6"> Priority: P1 (Urgent)</div>
+                    <div class="text-slate-400 pl-6">📋 Tasks (2 active)</div>
+                    <div class="text-slate-400 pl-6">🟢 NORMAL</div>
+                    <div class="text-slate-400 pl-6">  ⬜ Stand-up meeting  14:00 · #<span class="text-orange-400">7a</span></div>
+                    <div class="text-slate-400 pl-6">  ⬜ Review PR  14:00 · #<span class="text-orange-400">3f</span></div>
                     <div class="flex gap-2">
                         <span class="text-emerald-400">$</span>
-                        <span class="text-sky-400">todopro data export --output backup.json</span>
+                        <span class="text-sky-400">tp complete 7a</span>
                     </div>
-                    <div class="text-slate-400 pl-6">✓ Data exported to: backup.json</div>
-                    <div class="text-slate-400 pl-6">🔐 Data includes encrypted fields</div>
+                    <div class="text-slate-400 pl-6">✓ Completed: Stand-up meeting</div>
+                    <div class="text-slate-400 pl-6">  To undo: tp reopen 7a</div>
                     <div class="flex gap-2">
                         <span class="text-emerald-400">$</span>
-                        <span class="text-sky-400">todopro tasks list --output json</span>
+                        <span class="text-sky-400">tp add "Daily report" --json</span>
                     </div>
-                    <div class="text-slate-400 pl-6">{"tasks": [...], "total": 12}</div>
+                    <div class="text-slate-400 pl-6">{"id": "uuid...", "content": "Daily report"}</div>
                     <div class="flex gap-2">
                         <span class="text-emerald-400">$</span>
                         <span class="animate-pulse">_</span>
@@ -207,10 +207,9 @@
 
                 <div
                     class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-orange-500 transition-all hover:-translate-y-1">
-                    <i data-lucide="database" class="w-12 h-12 text-orange-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">Import/Export</h3>
-                    <p class="text-slate-400">Easily backup and restore all your data. Export to JSON for portability
-                        and integration.</p>
+                    <i data-lucide="folder-open" class="w-12 h-12 text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Project Management</h3>
+                    <p class="text-slate-400">Organize tasks into projects. Default <strong>Inbox</strong> project always exists. Project names are unique (case-insensitive).</p>
                 </div>
             </div>
         </div>
@@ -291,23 +290,23 @@ uv tool install --from . todopro-cli</code>
                         Basic Usage
                     </h3>
                     <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
-                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Login to TodoPro
-todopro login
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Quick add a task (natural language)
+tp add "Buy milk tomorrow at 2pm #groceries"
 
-# Quick add a task
-todopro add "Buy milk tomorrow at 2pm #groceries"
+# Add to a specific project (overrides NL)
+tp add "Stand-up daily at 9am" --project Work
 
-# List tasks
-todopro tasks list
+# See what's due today (unique short suffix shown)
+tp today
 
-# See what's due today
-todopro today
+# Complete by suffix shown in brackets [3f]
+tp complete 3f
 
-# Get the next task to work on
-todopro next
+# Undo a completion
+tp reopen 3f
 
-# Complete a task
-todopro complete &lt;task_id&gt;</code>
+# Edit a task interactively
+tp edit &lt;id&gt;</code>
                     </div>
                 </div>
 
@@ -317,17 +316,20 @@ todopro complete &lt;task_id&gt;</code>
                         Context Management
                     </h3>
                     <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
-                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Switch environments
-todopro config use-context prod
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># List contexts (JSON output)
+tp list contexts --json
 
-# List available contexts
-todopro config get-contexts
+# Create a local context
+tp create context dev-local --type local
 
-# Create a location context
-todopro contexts create home --icon "🏠" --geo
+# Switch active context
+tp use dev-local
 
-# Check context availability
-todopro contexts check</code>
+# Delete a context
+tp delete context dev-local
+
+# At most 10 contexts shown by default
+tp list contexts --limit 5</code>
                     </div>
                 </div>
 
@@ -337,12 +339,14 @@ todopro contexts check</code>
                         Task ID Shortcuts
                     </h3>
                     <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
-                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Use suffixes instead of full IDs
-todopro complete abc123def    # Full suffix
-todopro complete 123def       # Short suffix
-todopro reschedule e562bb     # Reschedule to today
-todopro get e562bb            # Get task details
-todopro update 123def --content "Updated task"</code>
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Suffix is shown in brackets [3f] by tp today
+# Globally unique — no ambiguity
+tp complete 3f       # complete by suffix
+tp reopen 3f         # undo completion
+tp describe task 3f  # get task details
+
+# All commands accept full UUID too
+tp edit 00000000-0000-0000-0000-000000000000</code>
                     </div>
                 </div>
 
@@ -352,17 +356,22 @@ todopro update 123def --content "Updated task"</code>
                         Advanced Features
                     </h3>
                     <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
-                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># Reschedule overdue tasks
-todopro tasks reschedule overdue --yes
+                        <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># All commands support JSON output
+tp add "task" --json
+tp add "task" -o json
+tp list project --json
+tp list contexts --json --limit 5
 
-# Set timezone
-todopro auth timezone Asia/Ho_Chi_Minh
+# Project management (Inbox is always default)
+tp create project Work
+tp list project       # pretty list
+tp archive project &lt;id&gt;
 
-# Output as JSON
-todopro tasks list -o json
+# Edit a task with flags
+tp edit &lt;id&gt; --content "New title" --project Work
 
 # Get help
-todopro --help</code>
+tp --help</code>
                     </div>
                 </div>
             </div>
