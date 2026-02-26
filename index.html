@@ -317,19 +317,19 @@ tp edit &lt;id&gt;</code>
                     </h3>
                     <div class="bg-slate-800 border border-slate-700 rounded-lg p-4 overflow-x-auto">
                         <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># List contexts (JSON output)
-tp list contexts --json
+tp context list --json
 
 # Create a local context
-tp create context dev-local --type local
+tp context create dev-local --type local
 
 # Switch active context
-tp use dev-local
+tp context use dev-local
 
 # Delete a context
-tp delete context dev-local
+tp context delete dev-local
 
 # At most 10 contexts shown by default
-tp list contexts --limit 5</code>
+tp context list --limit 5</code>
                     </div>
                 </div>
 
@@ -343,7 +343,7 @@ tp list contexts --limit 5</code>
 # Globally unique — no ambiguity
 tp complete 3f       # complete by suffix
 tp reopen 3f         # undo completion
-tp describe task 3f  # get task details
+tp task get 3f       # get task details
 
 # All commands accept full UUID too
 tp edit 00000000-0000-0000-0000-000000000000</code>
@@ -359,13 +359,13 @@ tp edit 00000000-0000-0000-0000-000000000000</code>
                         <code class="text-emerald-400 text-sm font-mono block whitespace-pre"># All commands support JSON output
 tp add "task" --json
 tp add "task" -o json
-tp list project --json
-tp list contexts --json --limit 5
+tp project list --json
+tp context list --json --limit 5
 
 # Project management (Inbox is always default)
-tp create project Work
-tp list project       # pretty list
-tp archive project &lt;id&gt;
+tp project create Work
+tp project list       # pretty list
+tp project archive &lt;id&gt;
 
 # Edit a task with flags
 tp edit &lt;id&gt; --content "New title" --project Work
